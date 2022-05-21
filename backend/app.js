@@ -12,9 +12,11 @@ app.use(cookies())
 
 const product=require('./route/ProductRoute');
 const user=require("./route/UserRoute");
+const order=require("./route/OrderRoute");
 
 app.use("/api/v1",product);
 app.use("/api/v1",user);
+app.use("/api/v1",order);
 
 app.use(errMiddleWare);
 
