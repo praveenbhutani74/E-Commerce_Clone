@@ -1,0 +1,22 @@
+.Main{
+    margin: 0%;
+    padding: 0%;
+    height: 100vh;
+   
+    position: absolute;
+    top: 12%;
+    width: 95vw;
+    left: 1%;
+    
+}
+
+
+.carousel .slide img {
+
+    max-height: 350px;  /* change this to whatever you want */
+    width: 1500px;
+    
+    object-fit: cover;
+    
+    
+}
