@@ -16,9 +16,11 @@
    
 }
 img{
-    width: 8rem;
-    margin-top: 10px;
+    width: 10rem;
+    height: 10rem;
+   margin-top: -15px;
     margin-left: 30px;
+   
 }
 .right-navbar{
 position: absolute;

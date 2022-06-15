@@ -9,11 +9,12 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #A8A8A8;
 }
 
 .banner > h1 {
   margin: 5vmax;
+  color: #A8A8A8;
 
   font: 600 2.5vmax "Roboto";
 }
@@ -25,7 +26,7 @@
 .banner > a > button {
   margin-bottom: 5vmax;
   cursor: pointer;
-  background-color: gray;
+  background-color: #A0A0A0;
   border: 1px solid white;
   border-radius: 0;
   padding: 1vmax;
@@ -71,7 +72,7 @@
 }
 
 .productCard {
-  width: 14vmax;
+  width: 15vmax;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -82,7 +83,10 @@
 }
 
 .productCard > img {
-  width: 14vmax;
+  width: 15vmax;
+  height: 15vmax;
+  margin-left: 2px;
+  margin-top: 2px;
 }
 
 .productCard > div {

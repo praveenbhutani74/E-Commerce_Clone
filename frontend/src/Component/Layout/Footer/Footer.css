@@ -26,6 +26,7 @@ footer {
   }
   .leftFooter > img {
     width: 10vmax;
+    height: 3vmax;
     margin: 1vmax;
     cursor: pointer;
   }

@@ -16,7 +16,7 @@ exports.createProduct = TryAndCatchAsyncErrors(async (req, res, next) => {
 })
 
 module.exports.getAllProducts = TryAndCatchAsyncErrors(async (req, res, next) => {
-
+    // return next(new Errors("This is temp error",500));
     const result=8;
     const ProductCount= await Product.countDocuments();
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
 import logo from  "../../../Image/1bd28eff5f34458eafa047794776d642.png"
+import logoimg from  "../../../Image/FullLogo_Transparent.png"
 import './Header.css'
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import { FaAmazon } from "react-icons/fa";
@@ -59,12 +60,12 @@ const Header = () => {
  
       <div className="left-navbar">
    
-   {/* <img src={logo} alt="img" ></img> */}
+   <img src={logoimg} alt="img" ></img>
 
    </div>
    <div className="right-navbar">
 
-       <AiOutlineShoppingCart style={{fontSize:"45",position:"absolute",top:"4.7",right:"90",color:"white"}} />
+       <AiOutlineShoppingCart style={{fontSize:"40",position:"absolute",top:"4.7",right:"90",color:"white"}} />
        <button style={{marginTop:"20"}}>
       <span >Login</span>
     </button>

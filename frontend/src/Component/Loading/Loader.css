@@ -1,0 +1,26 @@
+.Card{
+    display: flex;
+    flex-direction: column;
+   
+    margin-left: 100px;
+   margin-top: 10px;
+}
+.card-skelton{
+    display: flex;
+    
+   width: 90%;
+   height: 90%;
+    padding: 0.5rem;
+   
+    border-radius: 50%
+   
+
+}
+.card-skelton .left-col{
+    margin-right: 1rem;
+
+}
+.card-skelton .right-col{
+   flex: 1;
+
+}
