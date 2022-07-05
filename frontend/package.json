@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.5",
@@ -18,6 +19,7 @@
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
+    "react-js-pagination": "^3.0.3",
     "react-loading-skeleton": "^3.1.0",
     "react-lottie": "^1.2.3",
     "react-material-ui-carousel": "^3.4.2",
@@ -55,5 +57,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.101.4:8000"
+  "proxy": "http://192.168.101.4:8000/"
 }

@@ -8,6 +8,8 @@ import WebFont from "webfontloader";
 import { useEffect } from 'react';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import ProductDetails from './Component/Product/ProductDetails';
+import AllProducts from './Component/Product/AllProducts';
+import Search from './Component/Product/Search';
 // import Slider from './Component/Layout/Slider/Slider';
 
 
@@ -29,8 +31,11 @@ function App() {
         <Router>
           <Header />
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/product/:id' element={<ProductDetails/>}/>
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/product/:id' element={<ProductDetails/>}/>
+            <Route exact path='/products' element={<AllProducts/>}/>
+            <Route path='/products/:keyword' element={<AllProducts/>}/>
+            <Route exact path='/search' element={<Search/>}/>
           </Routes>
 
         

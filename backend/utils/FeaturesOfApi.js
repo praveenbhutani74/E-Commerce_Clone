@@ -34,15 +34,15 @@ class FeatureOfApi{
 
 
     }
-    pagination(result){
-        const current=Number(this.queryStr.page)||1;
-
-        const skip=result*(current-1);
-
-        this.query=this.query.limit(result).skip(skip);
+    pagination(resultPerPage) {
+        const currentPage = Number(this.queryStr.page) || 1;
+    
+        const skip = resultPerPage * (currentPage - 1);
+    
+        this.query = this.query.limit(resultPerPage).skip(skip);
+    
         return this;
-
-    }
+      }
 
 }
 

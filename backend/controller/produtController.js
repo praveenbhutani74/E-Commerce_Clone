@@ -16,19 +16,24 @@ exports.createProduct = TryAndCatchAsyncErrors(async (req, res, next) => {
 })
 
 module.exports.getAllProducts = TryAndCatchAsyncErrors(async (req, res, next) => {
-    // return next(new Errors("This is temp error",500));
-    const result=8;
+    
+    const resultPerPage=4;
     const ProductCount= await Product.countDocuments();
 
-    const FeatureOfApis= new FeatureOfApi(Product.find(),req.query).search().filter().pagination(result);
+    const ApiFeature= new FeatureOfApi(Product.find(),req.query).search().filter();
     
-    const product = await FeatureOfApis.query;
+    let products= await ApiFeature.query;
+    let filteredProductsCount = products.length;
+    ApiFeature.pagination(resultPerPage);
+   
    
 
     res.status(200).json({
         success: true,
-        product,
-        ProductCount
+        products,
+        ProductCount,
+        resultPerPage,
+        filteredProductsCount
     })
 })
 

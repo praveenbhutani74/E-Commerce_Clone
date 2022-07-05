@@ -5,11 +5,13 @@ import logoimg from  "../../../Image/FullLogo_Transparent.png"
 import './Header.css'
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import { FaAmazon } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import  {AiOutlineSearch} from 'react-icons/ai';
 
 
 const options = {
  
-  burgerColor:"white",
+  burgerColor:"gray",
   burgerColorHover:"gray",
   logo,
   logoWidth: "15vmax",
@@ -65,6 +67,10 @@ const Header = () => {
    </div>
    <div className="right-navbar">
 
+      <Link to={"/search"}>
+    <AiOutlineSearch style={{fontSize:"40",position:"absolute",top:"4.8",right:"130",color:"white"}} />
+      
+      </Link >
        <AiOutlineShoppingCart style={{fontSize:"40",position:"absolute",top:"4.7",right:"90",color:"white"}} />
        <button style={{marginTop:"20"}}>
       <span >Login</span>
