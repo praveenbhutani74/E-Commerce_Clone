@@ -7,7 +7,7 @@ import {AiOutlineShoppingCart} from 'react-icons/ai';
 import { FaAmazon } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import  {AiOutlineSearch} from 'react-icons/ai';
-
+import { useSelector } from "react-redux";
 
 const options = {
  
@@ -53,6 +53,7 @@ const options = {
 };
 
 const Header = () => {
+  const{isAuth} =useSelector((state)=>state.user);
 
   return(
   <>
@@ -72,9 +73,18 @@ const Header = () => {
       
       </Link >
        <AiOutlineShoppingCart style={{fontSize:"40",position:"absolute",top:"4.7",right:"90",color:"white"}} />
-       <button style={{marginTop:"20"}}>
-      <span >Login</span>
-    </button>
+     
+       
+     {
+       isAuth ?(<h1></h1>):( 
+        <Link to={"/login"} >
+        <button style={{marginTop:"20"}}>
+        <span >Login</span>
+      </button>
+        </Link>
+       
+      )
+     }
 
    </div>
 

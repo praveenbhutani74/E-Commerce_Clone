@@ -20,6 +20,8 @@ const ProductDetails = () => {
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
+  console.log(product);
+  console.log(loading);
   const options = {
     size: "large",
     value: product.ratings,
@@ -106,7 +108,7 @@ const ProductDetails = () => {
             </div>
           </div>
           <h3 className="reviewsHeading">REVIEWS</h3>
-          {console.log(product.review)}
+       
           {product.reviews && product.reviews[0] ? ( <div className="reviews">
                 {product.reviews&& product.reviews.map((review)=> <Review review={review}/>)}
 

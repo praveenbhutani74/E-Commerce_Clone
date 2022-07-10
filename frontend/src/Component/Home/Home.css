@@ -1,5 +1,5 @@
 .banner {
-  background-image: url("../../Image/cover.jfif");
+  background-image: url("../../Image/client-wearing-fashion-clothes-copy-space.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,12 +9,12 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  color: #A8A8A8;
+  color: rgb(174, 150, 150);
 }
 
 .banner > h1 {
   margin: 5vmax;
-  color: #A8A8A8;
+ color: rgb(174, 150, 150);
 
   font: 600 2.5vmax "Roboto";
 }
@@ -47,7 +47,7 @@
   position: absolute;
   top: 0%;
   left: 0;
-  clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+  clip-path: polygon(100% 75%, 0 100%, 100% 100%);
   max-width: 100%;
 }
 
