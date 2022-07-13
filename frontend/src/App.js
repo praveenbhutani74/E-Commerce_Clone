@@ -13,9 +13,18 @@ import LoginSignUp from "./Component/Auth.js/LoginSignUp";
 import SignUp from "./Component/Auth.js/SignUp";
 import store from './store';
 import { LoadingUser } from "./actions/UserAction";
+import UserOption from "./Component/Layout/Header/UserOption";
+import { useSelector } from "react-redux";
+import UserProfile from "./Component/Auth.js/UserProfile";
+import ProtectedRoute from "./Component/Route/ProtectedRoute";
+import UpdateProfile from "./Component/Auth.js/UpdateProfile";
+import UpdatePassword from "./Component/Auth.js/UpdatePassword";
+
 // import Slider from './Component/Layout/Slider/Slider';
 
 function App() {
+
+  const {isAuth,user}=useSelector((state)=>state.user);
   useEffect(() => {
     WebFont.load({
       google: {
@@ -29,8 +38,11 @@ function App() {
     <>
       <SkeletonTheme baseColor="#313131" highlightColor="#525252">
         <Router>
+              {isAuth && <UserOption user={user}/>}
           <Header />
+       
           <Routes>
+        
             <Route exact path="/" element={<Home />} />
             <Route exact path="/product/:id" element={<ProductDetails />} />
             <Route exact path="/products" element={<AllProducts />} />
@@ -38,8 +50,17 @@ function App() {
             <Route exact path="/search" element={<Search />} />
             <Route exact path="/login" element={<LoginSignUp />} />
             <Route exact path="/signup" element={<SignUp />} />
-          </Routes>
+           
+            <Route element={<ProtectedRoute/>}>
+              <Route exact path="/account" element={<UserProfile/> }/>
 
+              <Route exact path="/me/update" element={<UpdateProfile/>}/>
+              <Route exact path="/password/update" element={<UpdatePassword/>}/>
+
+            </Route>
+           
+          </Routes>
+       
           <Footer />
         </Router>
       </SkeletonTheme>

@@ -68,3 +68,15 @@ button {
     opacity: 1;
     right: 0;
   }
+
+  .speedDial {
+    position: fixed;
+    right: 2vmax;
+    top: 2vmax;
+  }
+  
+  .speedDialIcon {
+    width: 46px;
+    height: 46px;
+    border-radius: 100%;
+  }

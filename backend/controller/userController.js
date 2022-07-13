@@ -162,7 +162,7 @@ exports.UpdateUserPassword=TryAndCatchAsyncErrors(async(req,res,next)=>{
 
     const user= await User.findById(req.user.id).select("+password");
 
-    console.log(user);
+    // console.log(user);
 
     const iSPasswordMatch=await user.comparePass(req.body.oldPassword);
 
@@ -184,20 +184,39 @@ exports.UpdateUserPassword=TryAndCatchAsyncErrors(async(req,res,next)=>{
 
 exports.UpdateNameAndPassword=TryAndCatchAsyncErrors(async(req,res,next)=>{
 
-    const newRes={
-        name:req.body.name,
-        email:req.body.name
-    }
-    const user= await User.findByIdAndUpdate(req.body.id,newRes,{
-        new:true,
-        runValidators:true,
-        useFindAndModify:false
-    })
-
-    res.status(200).json({
-        success:true,
-
-    })
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
+      };
+    
+      if (req.body.avatar !== "") {
+        const user = await User.findById(req.user.id);
+    
+        const imageId = user.avatar.public_id;
+    
+        await cloudinary.v2.uploader.destroy(imageId);
+    
+        const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+          folder: "avatars",
+          width: 150,
+          crop: "scale",
+        });
+    
+        newUserData.avatar = {
+          public_id: myCloud.public_id,
+          url: myCloud.secure_url,
+        };
+      }
+    
+      const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
+      });
+    
+      res.status(200).json({
+        success: true,
+      });
 
 })
 //for admin
