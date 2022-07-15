@@ -4,7 +4,7 @@ import SpeedDial from '@mui/material/SpeedDial';
 import { useNavigate } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -12,6 +12,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import { useAlert } from 'react-alert';
 import { useDispatch } from 'react-redux';
 import { Logout } from '../../../actions/UserAction';
+import HomeIcon from '@mui/icons-material/Home';
 
 const UserOption = ({user}) => {
   const [open,setOpen]=useState(false);
@@ -20,6 +21,7 @@ const UserOption = ({user}) => {
 
   const navigate=useNavigate();
   const options=[
+    {icon: <HomeIcon/> , name:"Home", func: Home},
     {  icon: <ListAltIcon/> , name:"Orders", func: orders },
     {  icon: <PersonIcon/> , name:"Profile", func: account },
     {  icon: <ExitToAppIcon/> , name:"Logout", func: LogoutUser },
@@ -37,6 +39,9 @@ const UserOption = ({user}) => {
   }
   function account(){
     navigate("/account");
+  }
+  function Home(){
+    navigate("/");
   }
   function LogoutUser(){
 
@@ -59,7 +64,6 @@ const UserOption = ({user}) => {
      
       icon={
         <img 
-        
         src={user.avatar.url}
         alt="profile"
        style={{height:"56px",width:"56px",borderRadius:"50%",marginLeft:"1px",marginBottom:"-13px"}}

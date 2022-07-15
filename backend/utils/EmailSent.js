@@ -5,8 +5,9 @@ const EmailSent=async(opt)=>{
 
     const transporter=nodeMailer.createTransport({
         
-        // host: "smtp.gmail.com",
-        // port:465,
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         
         service:process.env.STMP_SERVICE,
         auth:{

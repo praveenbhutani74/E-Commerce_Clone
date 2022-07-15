@@ -19,6 +19,9 @@ import UserProfile from "./Component/Auth.js/UserProfile";
 import ProtectedRoute from "./Component/Route/ProtectedRoute";
 import UpdateProfile from "./Component/Auth.js/UpdateProfile";
 import UpdatePassword from "./Component/Auth.js/UpdatePassword";
+import ForgotPassword from "./Component/Auth.js/ForgotPassword";
+import ResetPassword from "./Component/Auth.js/ResetPassword";
+import CartItem from "./Component/Cart/CartItem";
 
 // import Slider from './Component/Layout/Slider/Slider';
 
@@ -50,12 +53,15 @@ function App() {
             <Route exact path="/search" element={<Search />} />
             <Route exact path="/login" element={<LoginSignUp />} />
             <Route exact path="/signup" element={<SignUp />} />
-           
+            <Route exact path="/password/forgot" element={<ForgotPassword/>}/>
+            <Route exact path="/Cart" element={<CartItem/>}/>
+            <Route exact path="/password/reset/:token" element={<ResetPassword/>}/>
             <Route element={<ProtectedRoute/>}>
               <Route exact path="/account" element={<UserProfile/> }/>
 
               <Route exact path="/me/update" element={<UpdateProfile/>}/>
               <Route exact path="/password/update" element={<UpdatePassword/>}/>
+             
 
             </Route>
            

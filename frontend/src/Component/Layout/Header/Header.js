@@ -72,8 +72,9 @@ const Header = () => {
     <AiOutlineSearch style={{fontSize:"40",position:"absolute",top:"4.8",right:"130",color:"white"}} />
       
       </Link >
+      <Link to={"/Cart"}>
        <AiOutlineShoppingCart style={{fontSize:"40",position:"absolute",top:"4.7",right:"90",color:"white"}} />
-     
+       </Link>
        
      {
        isAuth ?(<h1></h1>):( 
