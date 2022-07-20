@@ -3,8 +3,11 @@ const app=express();
 var cookies = require("cookie-parser");
 var bodyParser=require("body-parser");
 const fileUpload=require("express-fileupload");
+const dotenv=require('dotenv');
 
 const errMiddleWare=require('./middleware/error');
+
+dotenv.config({path:"backend/config/config.env"});
 
 app.use(express.json());
 app.use(cookies())
@@ -15,10 +18,12 @@ app.use(fileUpload());
 const product=require('./route/ProductRoute');
 const user=require("./route/UserRoute");
 const order=require("./route/OrderRoute");
+const payment=require("./route/PaymentRoute");
 
 app.use("/api/v1",product);
 app.use("/api/v1",user);
 app.use("/api/v1",order);
+app.use("/api/v1",payment);
 
 app.use(errMiddleWare);
 

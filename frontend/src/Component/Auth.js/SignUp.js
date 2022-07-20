@@ -12,7 +12,7 @@ const SignUp = () => {
   const dispatch=useDispatch();
   const alert = useAlert();
   let navigate = useNavigate();
-  const{loading,error,isAuth} =useSelector((state)=>state.user);
+  const{error,isAuth} =useSelector((state)=>state.user);
   const [user, setUser] = useState({
     name: "",
     email: "",

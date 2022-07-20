@@ -4,7 +4,6 @@ import SpeedDial from '@mui/material/SpeedDial';
 import { useNavigate } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -25,14 +24,15 @@ const UserOption = ({user}) => {
     {  icon: <ListAltIcon/> , name:"Orders", func: orders },
     {  icon: <PersonIcon/> , name:"Profile", func: account },
     {  icon: <ExitToAppIcon/> , name:"Logout", func: LogoutUser },
+    {  icon: <DashboardIcon/> , name:"Dashboard", func: dashboard }
   ]
 
-  if(user.role==="admin"){
-    options.unshift(  {  icon: <DashboardIcon/> , name:"Dashboard", func: dashboard })
-  }
+  // if(user.role==="admin"){
+  //   options.unshift(  )
+  // }
 
   function dashboard(){
-    navigate("/dashboard");
+    navigate("/admin/dashboard");
   }
   function orders(){
     navigate("/orders");

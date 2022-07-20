@@ -12,7 +12,7 @@ const Review = ({review}) => {
   };
   return (
     <div className="reviewCard">
-      <img src={profileImage} alt="UserImage" />
+      <img src={profileImage} alt="UserImage"  style={{height:"60px" ,width:"60px"}}/>
       <p>{review.name}</p>
       <Rating {...options} />
       <span className="reviewCardComment">{review.comment}</span>

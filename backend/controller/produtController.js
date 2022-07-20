@@ -99,7 +99,7 @@ exports.CreateProductReview=TryAndCatchAsyncErrors(async(req,res,next)=>{
 
     const isReview=product.reviews.find((rev)=> rev.user.toString()===req.user._id.toString());
     if(isReview){
-        product.reviews.foeEach((rev)=>{
+        product.reviews.forEach((rev)=>{
             if(rev.user.toString()===req.user._id.toString()){
                 rev.rating=rating,
                 rev.comment=comment

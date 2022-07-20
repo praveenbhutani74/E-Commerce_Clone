@@ -20,12 +20,12 @@ const categories=[
   "Camera",
   "Shirt"
 ];
-const options = {
-  size: "large",
-  value: 1,
-  readOnly: true,
-  precision: 0.5,
-};
+// const options = {
+//   size: "large",
+//   value: 1,
+//   readOnly: true,
+//   precision: 0.5,
+// };
 
 const AllProducts = () => {
   const alert = useAlert();

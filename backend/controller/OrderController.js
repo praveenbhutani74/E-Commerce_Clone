@@ -3,58 +3,57 @@ const Product = require('../model/productSchema');
 const Errors = require('../utils/Errors');
 const TryAndCatchAsyncErrors = require('../middleware/TryAndCatchAsyncErrors');
 
-
-exports.newOrderPlace=TryAndCatchAsyncErrors(async(req,res,next)=>{
-    const{shippinginfo,
-        orderItems,
-        paymentInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice,
-        }=req.body;
-
-        const order=await Order.create({
-            shippinginfo,
-        orderItems,
-        paymentInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice,
-        paidAt:Date.now(),
-        user:req.user._id
-        })
-
-        res.status(201).json({
-            success:true,
-            order
-        });
-});
-
-exports.GetSingleOrder=TryAndCatchAsyncErrors(async(req,res,next)=>{
-
-    const order=Order.findById(req.params.id).populate("user","name email");
-    if(!order){
-        return next(Errors("Order not found",404));
-    }
-
-    res.status(200).json({
-        success:true,
-        order
-    })
-})
-
-exports.MyOrder=TryAndCatchAsyncErrors(async(req,res,next)=>{
-
-    const order=Order.find({user:req.user._id});
+exports.newOrder = TryAndCatchAsyncErrors(async (req, res, next) => {
+    const {
+      shippingInfo,
+      orderItems,
+      paymentInfo,
+      itemsPrice,
+      taxPrice,
+      shippingPrice,
+      totalPrice,
+    } = req.body;
   
-
+    const order = await Order.create({
+      shippingInfo,
+      orderItems,
+      paymentInfo,
+      itemsPrice,
+      taxPrice,
+      shippingPrice,
+      totalPrice,
+      paidAt: Date.now(),
+      user: req.user._id,
+    });
+  
+    res.status(201).json({
+      success: true,
+      order,
+    });
+  });
+  exports.getSingleOrder = TryAndCatchAsyncErrors(async (req, res, next) => {
+    const order = await Order.findById(req.params.id).populate(
+      "user",
+      "name email"
+    );
+  
+    if (!order) {
+      return next(new ErrorHander("Order not found with this Id", 404));
+    }
+  
     res.status(200).json({
-        success:true,
-        order
-    })
-})
+      success: true,
+      order,
+    });
+  });
+exports.myOrders = TryAndCatchAsyncErrors(async (req, res, next) => {
+    const orders = await Order.find({ user: req.user._id });
+  
+    res.status(200).json({
+      success: true,
+      orders,
+    });
+  });
 exports.GetAllOrders=TryAndCatchAsyncErrors(async(req,res,next)=>{
 
     const orders=Order.find();

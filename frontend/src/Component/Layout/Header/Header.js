@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { ReactNavbar } from "overlay-navbar";
 import logo from  "../../../Image/1bd28eff5f34458eafa047794776d642.png"
 import logoimg from  "../../../Image/FullLogo_Transparent.png"
@@ -77,7 +77,7 @@ const Header = () => {
        </Link>
        
      {
-       isAuth ?(<h1></h1>):( 
+       isAuth ?(<Fragment></Fragment>):( 
         <Link to={"/login"} >
         <button style={{marginTop:"20"}}>
         <span >Login</span>

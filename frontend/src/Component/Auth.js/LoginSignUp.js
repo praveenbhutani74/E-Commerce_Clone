@@ -5,7 +5,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { useDispatch,useSelector } from "react-redux";
 import { clearErrors, login } from "../../actions/UserAction";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 
 import { useAlert } from "react-alert";
 import Loader from "../Loading/Loader";
@@ -14,6 +14,7 @@ const LoginSignUp = () => {
   const dispatch=useDispatch();
   const alert=useAlert();
   let navigate = useNavigate();
+  const location=useLocation();
 
   const{loading,error,isAuth} =useSelector((state)=>state.user);
   console.log(isAuth);
@@ -27,16 +28,19 @@ const LoginSignUp = () => {
   dispatch(login(loginEmail,loginPassword));
   };
 
+  const redirect = location.search ? location.search.split("=")[1] : "/account"
+  console.log(redirect);
+
   useEffect(()=>{
     if(error){
       alert.error(error);
       dispatch(clearErrors);
     }
     if(isAuth){
-      navigate("/account");
+      navigate(redirect);
     }
 
-  },[alert,error,isAuth,navigate,dispatch])
+  },[alert,error,isAuth,navigate,dispatch,redirect])
   return (
    <Fragment>
      {loading ? (

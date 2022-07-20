@@ -36,7 +36,7 @@ export const UserReducer = (state = { user: {} }, action) => {
           user:null,
           isAuth:false,
         }
-    case LOGIN_FAIL:
+
     case REGISTER_FAIL:
       return {
         ...state,
