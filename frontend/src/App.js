@@ -31,7 +31,19 @@ import ElementRoute from "./Component/Route/ElementRoute";
 import Success from "./Component/Cart/Success";
 import MyOrderDetail from "./Component/Order/MyOrderDetail";
 import SingleOrderDetail from "./Component/Order/SingleOrderDetail";
-import Dashboard from "@mui/icons-material/Dashboard";
+
+import DashBoardAdmin from "./Component/Admin/DashBoardAdmin";
+import ProductList from "./Component/Admin/ProductList";
+import AdminRoute from "./Component/Route/AdminRoute";
+import CreateProduct from "./Component/Admin/CreateProduct";
+import UpdateProduct from "./Component/Admin/UpdateProduct";
+import OrderList from "./Component/Admin/OrderList";
+import UpdateOrder from "./Component/Admin/UpdateOrder";
+import UsersList from "./Component/Admin/UserList";
+import UpdatedUserList from "./Component/Admin/UpdatedUserList";
+import ReviewsList from "./Component/Admin/ReviewsList";
+import Contact from "./Component/Layout/Conatct/Contact";
+import About from "./Component/Layout/About/About";
 
 
 // import Slider from './Component/Layout/Slider/Slider';
@@ -73,8 +85,10 @@ function App() {
           <Route element={<ElementRoute/>}> 
             { stripeApiKey&& <Route exact path="/process/payment" element={<Payment/>} />}
         </Route>
-        
+       
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/contact" element={<Contact/>}/>
+            <Route exact path="/about" element={<About/>}/>
             <Route exact path="/product/:id" element={<ProductDetails />} />
             <Route exact path="/products" element={<AllProducts />} />
             <Route path="/products/:keyword" element={<AllProducts />} />
@@ -96,7 +110,19 @@ function App() {
             <Route exact path="/success" element={<Success/>}/>     
             <Route exact path="/orders" element={<MyOrderDetail/>}/> 
             <Route exact path="/order/:id" element={<SingleOrderDetail/>}/>   
-            <Route exact path="/admin/dashboard" element={<Dashboard />}/>       
+           
+                
+            </Route>
+            <Route element={<AdminRoute/>}>
+            <Route exact path="/admin/dashboard" element={<DashBoardAdmin isAdmin={true}/>}/> 
+            <Route exact path="/admin/products" element={<ProductList isAdmin={true}/>}/> 
+            <Route exact path="/admin/product" element={<CreateProduct isAdmin={true}/>}/> 
+            <Route exact path="/admin/product/:id" element={<UpdateProduct isAdmin={true}/>}/> 
+            <Route exact path="/admin/orders" element={<OrderList isAdmin={true}/>}/> 
+            <Route exact path="/admin/order/:id" element={<UpdateOrder isAdmin={true}/>}/> 
+            <Route exact path="/admin/users" element={<UsersList isAdmin={true}/>}/> 
+            <Route exact path="/admin/user/:id" element={<UpdatedUserList isAdmin={true}/>}/> 
+            <Route exact path="/admin/reviews" element={<ReviewsList isAdmin={true}/>}/> 
             </Route>
           
            

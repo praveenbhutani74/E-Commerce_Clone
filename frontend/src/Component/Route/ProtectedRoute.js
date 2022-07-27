@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import { Outlet,Navigate } from 'react-router-dom'
 import { useSelector } from "react-redux";
 
 
 const ProtectedRoute = () => {
-  const{isAuth} =useSelector((state)=>state.user);
+  const{isAuth,loading} =useSelector((state)=>state.user);
   return (
-   isAuth===true ?
+  
+   loading===false&&isAuth===true?
    
    <Outlet/>
   
    
    :<Navigate to="/login"/>
+   
   )
 }
 

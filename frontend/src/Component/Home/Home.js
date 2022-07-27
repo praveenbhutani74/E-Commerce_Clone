@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from "react";
-import { CgMouse } from "react-icons/cg";
+
 import Product from "./Product";
 import MetaData from "../Layout/MetaData";
 import "./Home.css";
 import { clearErrors, getAllProduct } from "../../actions/productaction";
 import { useSelector, useDispatch } from "react-redux";
-// import Skeleton from 'react-loading-skeleton'
+
 import "react-loading-skeleton/dist/skeleton.css";
 import { useAlert } from "react-alert";
 
@@ -41,11 +41,7 @@ const Home = () => {
             <p>WELCOME TO SHOPPINGSTOCK</p>
             <h1>GRAB AMAZING PRODUCTS BELOW</h1>
 
-            <a href="#container">
-              <button>
-                Scroll <CgMouse />
-              </button>
-            </a>
+          
           </div>
           <h2 className="homeHeading">Featured Products</h2>
 

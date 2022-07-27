@@ -20,16 +20,21 @@ const UserOption = ({user}) => {
 
   const navigate=useNavigate();
   const options=[
+  
     {icon: <HomeIcon/> , name:"Home", func: Home},
     {  icon: <ListAltIcon/> , name:"Orders", func: orders },
     {  icon: <PersonIcon/> , name:"Profile", func: account },
     {  icon: <ExitToAppIcon/> , name:"Logout", func: LogoutUser },
-    {  icon: <DashboardIcon/> , name:"Dashboard", func: dashboard }
+   
   ]
 
-  // if(user.role==="admin"){
-  //   options.unshift(  )
-  // }
+  if (user.role === "admin") {
+    options.unshift({
+      icon: <DashboardIcon />,
+      name: "Dashboard",
+      func: dashboard,
+    });
+  }
 
   function dashboard(){
     navigate("/admin/dashboard");
@@ -74,7 +79,10 @@ const UserOption = ({user}) => {
         { options.map((item)=>(
           <SpeedDialAction
           key={item.name}
-          icon={item.icon} tooltipTitle={item.name} onClick={item.func} />
+          icon={item.icon}
+          sx={{color:'primary.main'}}
+          tooltipTitle={item.name} onClick={item.func} />
+        
         ))}
       </SpeedDial>
    </Fragment>
