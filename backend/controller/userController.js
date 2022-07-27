@@ -80,7 +80,7 @@ exports.forgetPassword=TryAndCatchAsyncErrors(async(req,res,next)=>{
     }
 
     const resetToken=  user.ResetPassWord();
-    console.log(resetToken);
+ 
 
     await user.save({validateBeforeSave:false});
 
@@ -118,7 +118,6 @@ exports.resetPassword=TryAndCatchAsyncErrors(async(req,res,next)=>{
     const resetPasswordToken=crypto.createHash("sha256").update(req.params.token).digest("hex");
 
 
-console.log(resetPasswordToken);
 
     const user=await User.findOne({
         resetPasswordToken,
@@ -162,7 +161,7 @@ exports.UpdateUserPassword=TryAndCatchAsyncErrors(async(req,res,next)=>{
 
     const user= await User.findById(req.user.id).select("+password");
 
-    // console.log(user);
+    
 
     const iSPasswordMatch=await user.comparePass(req.body.oldPassword);
 

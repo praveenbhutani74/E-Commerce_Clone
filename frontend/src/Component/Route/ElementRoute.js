@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const ElementRoute =() => { 
   const[stripeApiKey,setStripeApiKey]=useState("");
-  const{isAuth} =useSelector((state)=>state.user);
+  const{isAuth,loading} =useSelector((state)=>state.user);
   async function getStripeApiKey(){
     const {data}=await axios.get("/api/v1/stripeapikey");
     setStripeApiKey(data.stripeApiKey)
@@ -19,7 +19,7 @@ const ElementRoute =() => {
   
   return (
   
-    isAuth===true ? 
+    loading===false&&isAuth===true ? 
     <Elements stripe={loadStripe(stripeApiKey)} >
     <Outlet/>
     </Elements>

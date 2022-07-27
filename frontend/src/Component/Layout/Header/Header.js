@@ -69,7 +69,7 @@ const Header = () => {
    <div className="right-navbar">
 
       <Link to={"/search"}>
-    <AiOutlineSearch style={{fontSize:"40",position:"absolute",top:"4.8",right:"130",color:"#FAF9F6"}} />
+    <AiOutlineSearch style={{fontSize:"40",position:"absolute",top:"4.8",right:"130",color:"	#F5F5F5"}} />
       
       </Link >
       <Link to={"/Cart"}>

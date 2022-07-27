@@ -44,9 +44,10 @@ import UpdatedUserList from "./Component/Admin/UpdatedUserList";
 import ReviewsList from "./Component/Admin/ReviewsList";
 import Contact from "./Component/Layout/Conatct/Contact";
 import About from "./Component/Layout/About/About";
+import NotFound from "./Component/Layout/NotFound/NotFound";
 
 
-// import Slider from './Component/Layout/Slider/Slider';
+
 
 function App() {
 
@@ -72,6 +73,8 @@ function App() {
     getStripeApiKey();
 
   },[]);
+
+  window.addEventListener("contextmenu",(e)=>e.preventDefault());
 
   return (
     <>
@@ -124,6 +127,7 @@ function App() {
             <Route exact path="/admin/user/:id" element={<UpdatedUserList isAdmin={true}/>}/> 
             <Route exact path="/admin/reviews" element={<ReviewsList isAdmin={true}/>}/> 
             </Route>
+            <Route path='*' element={<NotFound />} />
           
            
           </Routes>
