@@ -1,3 +1,4 @@
+import React from 'react'
 import "./App.css";
 import Header from "./Component/Layout/Header/Header";
 import Home from "./Component/Home/Home.js";
