@@ -69,11 +69,11 @@ const Header = () => {
    <div className="right-navbar">
 
       <Link to={"/search"}>
-    <AiOutlineSearch style={{fontSize:"40",position:"absolute",top:"4.8",right:"130",color:"	#F5F5F5"}} />
+    <AiOutlineSearch style={{fontSize:"40",position:"absolute",top:"4.8",right:"130",color:"#A94064"}} />
       
       </Link >
       <Link to={"/Cart"}>
-       <AiOutlineShoppingCart style={{fontSize:"40",position:"absolute",top:"4.7",right:"90",color:"#FAF9F6"}} />
+       <AiOutlineShoppingCart style={{fontSize:"40",position:"absolute",top:"4.7",right:"90",color:"#A94064"}} />
        </Link>
        
      {

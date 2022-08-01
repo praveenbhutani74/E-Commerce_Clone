@@ -1,7 +1,7 @@
 import {
-  PRODUCTS_REQUEST,
-  PRODUCTS_SUCCESS,
-  PRODUCTS_FAIL,
+  ALL_PRODUCT_FAIL,
+  ALL_PRODUCT_REQUEST,
+  ALL_PRODUCT_SUCCESS,
   SINGLE_PRODUCTS_REQUEST,
   SINGLE_PRODUCTS_SUCCESS,
   SINGLE_PRODUCTS_FAIL,
@@ -10,9 +10,9 @@ import {
   NEW_REVIEW_SUCCESS,
   NEW_REVIEW_FAIL,
   NEW_REVIEW_RESET,
-  ADMIN_PRODUCTS_SUCCESS,
-  ADMIN_PRODUCTS_FAIL,
-  ADMIN_PRODUCTS_REQUEST,
+  ADMIN_PRODUCT_REQUEST,
+  ADMIN_PRODUCT_SUCCESS,
+  ADMIN_PRODUCT_FAIL,
   NEW_PRODUCT_REQUEST,
   NEW_PRODUCT_SUCCESS,
   NEW_PRODUCT_FAIL,
@@ -36,32 +36,33 @@ import {
 
 export const productsReducer = (state = { products: [] }, action) => {
   switch (action.type) {
-    case PRODUCTS_REQUEST:
-    case ADMIN_PRODUCTS_REQUEST:
+    case ALL_PRODUCT_REQUEST:
+    case ADMIN_PRODUCT_REQUEST:
       return {
         loading: true,
         products: [],
       };
-    case PRODUCTS_SUCCESS:
+    case ALL_PRODUCT_SUCCESS:
       return {
         loading: false,
         products: action.payload.products,
-
-        ProductCount: action.payload.ProductCount,
+        productsCount: action.payload.productsCount,
         resultPerPage: action.payload.resultPerPage,
         filteredProductsCount: action.payload.filteredProductsCount,
       };
-    case ADMIN_PRODUCTS_SUCCESS:
+
+    case ADMIN_PRODUCT_SUCCESS:
       return {
         loading: false,
         products: action.payload,
       };
-    case PRODUCTS_FAIL:
-    case ADMIN_PRODUCTS_FAIL:
+    case ALL_PRODUCT_FAIL:
+    case ADMIN_PRODUCT_FAIL:
       return {
         loading: false,
         error: action.payload,
       };
+
     case CLEAR_ERROR:
       return {
         ...state,

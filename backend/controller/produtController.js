@@ -5,6 +5,7 @@ const TryAndCatchAsyncErrors = require('../middleware/TryAndCatchAsyncErrors');
 const FeatureOfApi = require('../utils/FeaturesOfApi');
 const cloudinary=require('cloudinary');
 
+
 exports.createProduct = TryAndCatchAsyncErrors(async (req, res, next) => {
     let images = [];
   
@@ -38,27 +39,31 @@ exports.createProduct = TryAndCatchAsyncErrors(async (req, res, next) => {
     });
   });
   
-module.exports.getAllProducts = TryAndCatchAsyncErrors(async (req, res, next) => {
-    
-    const resultPerPage=4;
-    const ProductCount= await Product.countDocuments();
-
-    const ApiFeature= new FeatureOfApi(Product.find(),req.query).search().filter();
-    
-    let products= await ApiFeature.query;
+  exports.getAllProducts = TryAndCatchAsyncErrors(async (req, res, next) => {
+    const resultPerPage = 2;
+    const productsCount = await Product.countDocuments();
+  
+    const apiFeature =   new  FeatureOfApi(Product.find(), req.query)
+      .search()
+      .filter();
+  
+    let products = await apiFeature.query;
+  
     let filteredProductsCount = products.length;
-    ApiFeature.pagination(resultPerPage);
-   
-   
-
+  
+    apiFeature.pagination(resultPerPage);
+  
+  
+  
     res.status(200).json({
-        success: true,
-        products,
-        ProductCount,
-        resultPerPage,
-        filteredProductsCount
-    })
-})
+      success: true,
+      products,
+      productsCount,
+      resultPerPage,
+      filteredProductsCount,
+    });
+  });
+  
 exports.getAdminProducts = TryAndCatchAsyncErrors(async (req, res, next) => {
     const products = await Product.find();
   
@@ -89,7 +94,7 @@ exports.updateProduct = TryAndCatchAsyncErrors(async (req, res, next) => {
       return next(new ErrorHander("Product not found", 404));
     }
   
-    // Images Start Here
+ 
     let images = [];
   
     if (typeof req.body.images === "string") {
@@ -99,7 +104,7 @@ exports.updateProduct = TryAndCatchAsyncErrors(async (req, res, next) => {
     }
   
     if (images !== undefined) {
-      // Deleting Images From Cloudinary
+    
       for (let i = 0; i < product.images.length; i++) {
         await cloudinary.v2.uploader.destroy(product.images[i].public_id);
       }
@@ -139,7 +144,7 @@ exports.deleteProduct = TryAndCatchAsyncErrors(async (req, res, next) => {
       return next(new ErrorHander("Product not found", 404));
     }
   
-    // Deleting Images From Cloudinary
+  
     for (let i = 0; i < product.images.length; i++) {
       await cloudinary.v2.uploader.destroy(product.images[i].public_id);
     }
