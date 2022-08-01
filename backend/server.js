@@ -1,4 +1,6 @@
 const app=require('./app');
+const dotenv=require('dotenv');
+
 
 
 
@@ -11,9 +13,7 @@ process.on("uncaughtException",(err)=>{
     process.exit(1);
 })
 
-if (process.env.NODE_ENV !== "PRODUCTION") {
-    require("dotenv").config({ path: "backend/config/config.env" });
-  }
+dotenv.config({path:"backend/config/config.env"});
 //connect    
 DBConnect();
 
