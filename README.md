@@ -38,7 +38,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd Chatting-App
+  cd E-COMMERCE_CLONE
 ```
 
 Install dependencies
