@@ -1,5 +1,5 @@
-# Shooping-Stock
-Full-Stack Shooping-Stock with Admin Dashboard &  Stripe Payment Gateway.
+# Shopping-Stock
+ Shopping-Stock with Admin Dashboard &  Stripe Payment Gateway.
 
 ## 🖥️ Tech Stack
 **Frontend:**
